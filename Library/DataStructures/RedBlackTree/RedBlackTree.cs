@@ -30,14 +30,12 @@ public class RedBlackTree
             }
             else
             {
-                if (uvBlack)
+                if (uvBlack) // u and v are both black. v is a leaf, fix double black at v
                 {
-                    // u and v are both black. v is a leaf, fix double black at v
                     FixDoubleBlack(v);
                 }
-                else
+                else // u or v is red
                 {
-                    // u or v is red
                     Node? vSibling = GetSibling(v);
 
                     if (vSibling != null)
@@ -83,9 +81,8 @@ public class RedBlackTree
 
                 u.Parent = parent;
 
-                if (uvBlack)
+                if (uvBlack) // u and v are both black, fix double black at u
                 {
-                    // u and v are both black, fix double black at u
                     FixDoubleBlack(u);
                 }
                 else
@@ -490,8 +487,6 @@ public class RedBlackTree
 
     static private void SwapNodeValues(Node u, Node v)
     {
-        int temp = u.Key;
-        u.Key = v.Key;
-        v.Key = temp;
+        (v.Key, u.Key) = (u.Key, v.Key);
     }
 }
