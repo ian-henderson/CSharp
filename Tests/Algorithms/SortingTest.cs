@@ -46,4 +46,28 @@ public class SortingTest
         IInsertionSort.Sort(array);
         Assert.True(IUtilities.IsSorted(array));
     }
+
+    [Fact]
+    public void MergeSortShouldSortArray()
+    {
+        int[] array = CopyUnsortedArray();
+        IMergeSort.Sort(array);
+        Assert.True(IUtilities.IsSorted(array));
+    }
+
+    [Fact]
+    public void QuickSortShouldSortArray()
+    {
+        int[] array = CopyUnsortedArray();
+        IQuickSort.Sort(array);
+        Assert.True(IUtilities.IsSorted(array));
+    }
+
+    [Fact]
+    public void SelectionSortShouldSortArray()
+    {
+        int[] array = CopyUnsortedArray();
+        ISelectionSort.Sort(array);
+        Assert.True(IUtilities.IsSorted(array));
+    }
 }
